@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strelne prostory</title>
+</head>
+<body>
+<nav>
+  <a href="{% url 'zbr_index' %}">Zbrane</a> |
+  <a href="{% url 'zam_index' %}">Zamestnanci</a> |
+  <a href="{% url 'zak_index' %}">Zakaznici</a> |
+  <a href="{% url 'spr_index' %}">Strelne prostory</a> |
+  <a href="{% url 'rez_index' %}">Rezervace</a> |
+  <a href="{% url 'str_index' %}">Strelby</a>
+</nav>
+<h1>Střelné prostory</h1>
+
+<a href = "{% url 'vzdalenost_search' %}">Vyhledavani podle vzdalenosti od terce.</a>
+
+{% for pros in prostory %}
+<li> <a href = "{% url 'spr_name' pros.idSpr %}">{{ pros.idSpr }} {{ pros.vzdalenost }} {{ pros.popis }}</a></li>
+{% endfor %}
+</body>
+</html>

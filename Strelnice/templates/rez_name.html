@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervace</title>
+</head>
+<body>
+<nav>
+  <a href="{% url 'zbr_index' %}">Zbrane</a> |
+  <a href="{% url 'zam_index' %}">Zamestnanci</a> |
+  <a href="{% url 'zak_index' %}">Zakaznici</a> |
+  <a href="{% url 'spr_index' %}">Strelne prostory</a> |
+  <a href="{% url 'rez_index' %}">Rezervace</a> |
+  <a href="{% url 'str_index' %}">Strelby</a>
+</nav>
+<h1>Rezervace</h1>
+Rezervace {{ rezervace.idRez }} vytvořena {{ rezervace.datumVytvoreni }} na {{ rezervace.datumStrelby }} pro {{ rezervace.idZak }} s {{ rezervace.idZbr }} na {{ rezervace.idSpr }}
+
+<a href = "{% url 'rez_index' %}">Navrat na index.</a>
+</body>
+</html>

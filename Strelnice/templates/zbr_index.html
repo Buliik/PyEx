@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zbrane</title>
+</head>
+<body>
+
+<nav>
+  <a href="{% url 'zbr_index' %}">Zbrane</a> |
+  <a href="{% url 'zam_index' %}">Zamestnanci</a> |
+  <a href="{% url 'zak_index' %}">Zakaznici</a> |
+  <a href="{% url 'spr_index' %}">Strelne prostory</a> |
+  <a href="{% url 'rez_index' %}">Rezervace</a> |
+  <a href="{% url 'str_index' %}">Strelby</a>
+</nav>
+
+<h1>Zbrane</h1>
+
+<a href = "{% url 'raze_search' %}">Vyhledavani dle raze.</a>
+<a href = "{% url 'rok_search' %}">Vyhledavani dle roku vyroby.</a>
+
+{% for zbr in zbrane %}
+<li> <a href = "{% url 'zbr_name' zbr.idZbr %}">{{ zbr.nazev }} {{ zbr.typ_zbrane }} {{ zbr.raze }} {{ zbr.rok_vyroby }}</a></li>
+{% endfor %}
+</body>
+</html>

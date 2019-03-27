@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strelby</title>
+</head>
+<body>
+<nav>
+  <a href="{% url 'zbr_index' %}">Zbrane</a> |
+  <a href="{% url 'zam_index' %}">Zamestnanci</a> |
+  <a href="{% url 'zak_index' %}">Zakaznici</a> |
+  <a href="{% url 'spr_index' %}">Strelne prostory</a> |
+  <a href="{% url 'rez_index' %}">Rezervace</a> |
+  <a href="{% url 'str_index' %}">Strelby</a>
+</nav>
+<h1>Vyhledavani streleb podle data zacatku.</h1>
+{% for strelba in strelby %}
+ <li> {{ strelba.idStr }} {{ strelba.zacatek }} : {{ strelba.konec }} </li>
+{% endfor %}
+
+<form action="{% url 'str_date_search' %}" method="post">
+{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="submit" value="search">
+</form>
+
+<a href = "{% url 'str_index' %}">Navrat na index.</a>
+</body>
+</html>
